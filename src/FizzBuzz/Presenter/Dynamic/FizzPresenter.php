@@ -1,9 +1,9 @@
 <?php
-namespace App\FizzBuzz\Presenter;
+namespace App\FizzBuzz\Presenter\Dynamic;
 
 use App\FizzBuzz\FizzBuzzPresenterInterface;
 
-class FizzBuzzPresenter implements FizzBuzzPresenterInterface
+class FizzPresenter implements FizzBuzzPresenterInterface
 {
     private $num;
 
@@ -14,11 +14,13 @@ class FizzBuzzPresenter implements FizzBuzzPresenterInterface
 
     public function __toString(): string
     {
-        return 'FizzBuzz';
+        return 'Fizz';
     }
 
     public function isAvailable(): bool
     {
-        return true;
+        return ($this->num % 3 === 0 && $this->num % 5 !== 0)
+            ? true
+            : eval('invalid');
     }
 }

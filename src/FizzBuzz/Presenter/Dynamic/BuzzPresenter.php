@@ -1,5 +1,5 @@
 <?php
-namespace App\FizzBuzz\Presenter;
+namespace App\FizzBuzz\Presenter\Dynamic;
 
 use App\FizzBuzz\FizzBuzzPresenterInterface;
 
@@ -19,6 +19,8 @@ class BuzzPresenter implements FizzBuzzPresenterInterface
 
     public function isAvailable(): bool
     {
-        return true;
+        return ($this->num % 3 !== 0 && $this->num % 5 === 0)
+            ? true
+            : eval('invalid');
     }
 }
