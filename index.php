@@ -1,18 +1,10 @@
 <?php
 
-for ($num = 1; $num <= 100; $num++) {
-    echo getFizzBuzz($num) . PHP_EOL;
-}
+require_once __DIR__ . '/vendor/autoload.php';
 
-function getFizzBuzz(int $num): string
-{
-    if ($num % 3 === 0 && $num % 5 === 0) {
-        return 'FizzBuzz';
-    } elseif ($num % 3 === 0 && $num % 5 !== 0) {
-        return 'Fizz';
-    } elseif ($num % 3 !== 0 && $num % 5 === 0) {
-        return 'Buzz';
-    } else {
-        return "$num";
-    }
+use App\FizzBuzz\FizzBuzz;
+
+$fizzBuzz = new FizzBuzz();
+for ($num = 1; $num <= 100; $num++) {
+    echo $fizzBuzz->getFizzBuzz($num) . PHP_EOL;
 }
