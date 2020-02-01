@@ -1,6 +1,7 @@
 <?php
 namespace App\FizzBuzz\Presenter;
 
+use App\FizzBuzz\PresenterEnum;
 use App\FizzBuzz\FizzBuzzPresenterInterface;
 
 class NumberPresenter implements FizzBuzzPresenterInterface
@@ -12,13 +13,9 @@ class NumberPresenter implements FizzBuzzPresenterInterface
         $this->num = $num;
     }
 
-    public function __toString(): string
+    public function toString(): string
     {
-        return "$this->num";
-    }
-
-    public function isAvailable(): bool
-    {
-        return true;
+        $enum = new PresenterEnum($this->num);
+        return $enum->getType();
     }
 }
